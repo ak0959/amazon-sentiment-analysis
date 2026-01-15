@@ -3,6 +3,21 @@
 ## 📊 Project Vision
 This project demonstrates an end-to-end Machine Learning pipeline for sentiment classification. While the original dataset contains 3.6 million reviews, this project intentionally scales the analysis to **1,000,000 samples** to balance high-performance modeling with the computational constraints of a standard 16GB RAM development environment.
 
+## 🧠 What is Sentiment Classification?
+
+Sentiment Classification is a branch of **Natural Language Processing (NLP)** that uses algorithms to determine the emotional tone behind a body of text. 
+
+### How it works in this project:
+1. **Binary Classification:** We treat sentiment as a "Yes/No" problem. Label **1** represents Positive (4-5 star reviews), and Label **0** represents Negative (1-2 star reviews).
+2. **Feature Extraction (TF-IDF):** This process identifies "signature words." For example, the word "waste" appears frequently in negative reviews but rarely in positive ones. TF-IDF gives "waste" a high mathematical weight for the Negative class.
+3. **The Prediction:** When we give the model a new review, it looks at the weights of all the words present. If the "Negative weights" outweigh the "Positive weights," the model predicts a `0`.
+
+### Why this matters:
+In a real-world business context, this allows companies to:
+* **Monitor Brand Health:** Instantly track customer satisfaction across millions of data points.
+* **Identify Product Flaws:** Automatically flag reviews mentioned "broken" or "defective" for the quality control team.
+* **Competitive Analysis:** Compare the sentiment of your products against competitors at scale.
+
 ---
 
 ## 🛠️ Technical Decisions & Methodology
