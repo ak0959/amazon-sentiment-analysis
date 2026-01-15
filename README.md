@@ -57,8 +57,6 @@ After training on 800,000 reviews, we tested the model on 200,000 "blind" review
 * **Overall Accuracy: 89.40%**
     * **What this means:** If you give our model 100 random reviews, it will correctly guess whether they are positive or negative about 89 times. For a computer program reading human language—which is full of slang and sarcasm—this is a very high score.
  
-# Step 15: Deep Dive into Accuracy & Industry Benchmarks
-
 In this section, we explain why **89.4% (roughly 90%)** is the result we achieved and how it stacks up against standard industry practices.
 
 ### ❓ Is 90% Accuracy "Good"?
