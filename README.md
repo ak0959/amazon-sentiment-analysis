@@ -49,9 +49,35 @@ In a real-world business context, this allows companies to:
 
 ## 📈 Performance & Results
 
-* **Final Accuracy:** 89.40% on a test set of 200,000 unseen reviews.
-* **Class Balance:** Nearly identical Precision and Recall for both Negative (0) and Positive (1) classes, confirming the model has no bias.
-* **Memory Optimization:** The final serialized model artifacts are under 2.5MB total, making them lightweight and ready for web-deployment (e.g., Streamlit or Flask).
+In this section, we break down exactly how well our model performed and what those numbers actually mean in a real-world business context.
+
+### 📈 How the Model Performed
+After training on 800,000 reviews, we tested the model on 200,000 "blind" reviews (data the model had never seen before). 
+
+* **Overall Accuracy: 89.40%**
+    * **What this means:** If you give our model 100 random reviews, it will correctly guess whether they are positive or negative about 89 times. For a computer program reading human language—which is full of slang and sarcasm—this is a very high score.
+
+* **Balanced Understanding (Precision & Recall)**
+    * **The Problem:** Sometimes a model is "lazy" and just guesses "Positive" for everything. 
+    * **Our Solution:** Our model achieved a balance of ~90% for both positive and negative reviews. This means it is just as good at spotting a happy customer as it is at spotting an angry one.
+
+### 🔍 Deep Dive: The "Confusion Matrix"
+A "Confusion Matrix" is a table that shows exactly where the model got confused. Out of our 200,000 test cases:
+
+
+
+1.  **True Negatives (87,868):** The model correctly identified these as negative reviews.
+2.  **True Positives (90,997):** The model correctly identified these as positive reviews.
+3.  **The "Confusion" (Errors):**
+    * **False Positives (~11,000):** The model thought these were positive, but they were actually negative.
+    * **False Negatives (~10,000):** The model thought these were negative, but they were actually positive.
+
+**Why do errors happen?** Language is tricky. A review like *"This was not a bad product"* contains the word "bad," which might confuse a basic model into thinking it's negative, even though the overall sentiment is decent.
+
+### 💡 Real-World Impact
+Why did we go through all this effort? Imagine you are a manager at Amazon:
+* **Speed:** This model processed 1,000,000 data points and learned to read them in just **22.4 seconds**. A human would take years to read that many reviews.
+* **Automation:** You can now automatically flag the most "Negative" reviews for your customer service team to investigate immediately, ensuring unhappy customers get help faster.
 
 
 
